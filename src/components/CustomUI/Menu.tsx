@@ -16,9 +16,10 @@ const socialItems = [
 
 const Menu: FC = () => {
   return (
-    <div style={{ height: '100vh', background: '#ffffff' }}>
+    <div style={{ height: '100vh', background: '#141414' }}>
       <StaggeredMenu
         position="right"
+
         isFixed={true}
         items={menuItems}
         socialItems={socialItems}

@@ -1,25 +1,57 @@
 import type { ReactNode } from "react";
+import SkilsCard from "../CustomUI/SkillsCard";
+import BlurText from "../BlurText";
 import Menu from "../CustomUI/Menu";
+
 const HomeSection = (): ReactNode => {
   return (
     <>
-      <div className="fixed  ">
-        <Menu />
+      <div className="relative w-full min-h-screen">
+
+        {/* Navbar */}
+        <div className="fixed z-[100] top-4 left-4">
+          <Menu />
+        </div>
+
+        {/* Hero Section */}
+        <div className="pt-28 w-full flex flex-col sm:flex-row items-center justify-center gap-10 px-6">
+
+          {/* Left Text */}
+          <div className="flex flex-col items-start sm:items-start text-center sm:text-left">
+            <BlurText
+              text="Ayush Awachar"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              onAnimationComplete={() => console.log('hello world')}
+              className="text-5xl sm:text-7xl lg:text-8xl text-white leading-tight font-bold"
+            />
+
+            <p className="text-gray-400 mt-4 text-lg sm:text-xl max-w-md">
+              Frontend Developer | React | Tailwind | GSAP | Typescript
+            </p>
+          </div>
+
+          {/* Right Image */}
+          <div className="flex justify-center">
+            <img
+              className="w-64 sm:w-80 md:w-[380px] lg:w-[460px] drop-shadow-xl rounded-xl"
+              src="https://media1.tenor.com/m/8EYsL7kKCd4AAAAd/muichiro-tokito.gif"
+              alt="Coder"
+            />
+          </div>
+
+        </div>
+
+        {/* Skills Card */}
+        <div className="w-fit mx-auto mt-20 rounded-xl bg-[#141414] p-4">
+          <SkilsCard />
+        </div>
+
       </div>
-      <div>
-
-        <h2 className="text-5xl text-white text-center pt-9 ">Ayush Awachar</h2>
-
-      </div>
-
-
-      {/* for main screen */}
-      <div className="mx-20 items-center h-[50vh] rounded-2xl flex justify-evenly  mt-20"  >
-      </div>
-
     </>
-  )
-}
+  );
+};
 
+export default HomeSection;
 
-export default HomeSection
