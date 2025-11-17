@@ -2,14 +2,16 @@ import type { ReactNode } from "react";
 import SkilsCard from "../CustomUI/SkillsCard";
 import BlurText from "../BlurText";
 import Menu from "../CustomUI/Menu";
+import Projects from "../Projects";
 
 const HomeSection = (): ReactNode => {
   return (
     <>
       <div className="relative w-full min-h-screen">
 
+
         {/* Navbar */}
-        <div className="fixed z-[100] top-4 left-4">
+        <div className="fixed z-100 top-4 left-4">
           <Menu />
         </div>
 
@@ -31,13 +33,14 @@ const HomeSection = (): ReactNode => {
               Frontend Developer | React | Tailwind | GSAP | Typescript
             </p>
           </div>
-
+          l
           {/* Right Image */}
           <div className="flex justify-center">
             <img
-              className="w-64 sm:w-80 md:w-[380px] lg:w-[460px] drop-shadow-xl rounded-xl"
-              src="https://media1.tenor.com/m/8EYsL7kKCd4AAAAd/muichiro-tokito.gif"
+              className="w-64 sm:w-80 md:w-[380px] lg:w-[460px] rounded-xl drop-shadow-xl"
+              src="https://media1.tenor.com/m/VO0p4rzSGQ4AAAAd/demon-slayer-kimetsu-no-yaiba.gif"
               alt="Coder"
+
             />
           </div>
 
@@ -48,10 +51,16 @@ const HomeSection = (): ReactNode => {
           <SkilsCard />
         </div>
 
-      </div>
+        {/* scroll */}
+        <div className=" mx-3 ">
+          <Projects />
+        </div>
+
+        <div className="h-screen">
+        </div>
+      </div >
     </>
   );
 };
 
 export default HomeSection;
-
