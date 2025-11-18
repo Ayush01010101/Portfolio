@@ -22,7 +22,6 @@ const Skils: SkillsObj[] = [
 
 const SkilsCard = (): ReactNode => {
 
-
   return (
     <div className="p-6 flex flex-wrap gap-6 bg-[#141414] rounded-xl justify-center">
       {Skils.map((skill, index) => (
