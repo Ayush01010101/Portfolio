@@ -1,19 +1,14 @@
 
+import ContactSection from "./ContactSection";
 import type { ReactNode } from "react";
 import SkilsCard from "../CustomUI/SkillsCard";
 import BlurText from "../BlurText";
-import Menu from "../CustomUI/Menu";
 import Projects from "../Projects";
 
 const HomeSection = (): ReactNode => {
   return (
     <>
       <div className="w-full">
-
-        {/* Navbar */}
-        <div className="fixed z-100 top-4 left-4">
-          <Menu />
-        </div>
 
         <div className="flex flex-col h-screen justify-center items-center">
           <div className=" w-full flex    items-center justify-center gap-10 px-6">
@@ -23,6 +18,7 @@ const HomeSection = (): ReactNode => {
 
               <BlurText
                 text="Ayush Awachar"
+
                 delay={150}
                 animateBy="words"
                 direction="top"
@@ -55,11 +51,15 @@ const HomeSection = (): ReactNode => {
           </div>
         </div>
 
+
         {/* Projects Section */}
         <div className="mx-3">
           <Projects />
         </div>
+        <div >
 
+          <ContactSection />
+        </div>
         <div className="h-screen" />
       </div >
     </>
