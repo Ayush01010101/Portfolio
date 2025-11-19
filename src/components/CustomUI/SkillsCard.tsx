@@ -14,6 +14,7 @@ const Skils: SkillsObj[] = [
   { imageurl: "/Css.svg", text: "CSS" },
   { imageurl: "/Javascript.svg", text: "Javascript" },
   { imageurl: "Typescript.svg", text: "Typescript" },
+  { imageurl: "/React.svg", text: "React" },
   { imageurl: "/Supabase.svg", text: "Supabase" },
   { imageurl: "Github.svg", text: "Github" },
 ];
