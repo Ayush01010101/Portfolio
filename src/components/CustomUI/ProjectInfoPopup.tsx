@@ -1,10 +1,7 @@
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import gsap from "gsap";
-import {
-  X,
-  ExternalLink,
-  Github,
-} from "lucide-react";
+import { X, ExternalLink, Github } from "lucide-react";
 
 export interface ProjectType {
   title: string;
@@ -14,7 +11,7 @@ export interface ProjectType {
   link?: string;
 }
 
-interface ModalProps {
+export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   project: ProjectType | null;
@@ -23,86 +20,92 @@ interface ModalProps {
 export default function ProjectInfoPopup({ isOpen, onClose, project }: ModalProps) {
   const backdropRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const descRef = useRef<HTMLParagraphElement>(null);
+  const actionsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isOpen && project) {
+      gsap.set(backdropRef.current, { opacity: 0 });
+      gsap.set(contentRef.current, { opacity: 0, scale: 0.95 });
+      gsap.set(closeBtnRef.current, { opacity: 0, scale: 0, rotation: -180 });
+      gsap.set(imgRef.current, { opacity: 0, scale: 1.2 });
+      gsap.set(titleRef.current, { opacity: 0, y: 30 });
+      gsap.set(descRef.current, { opacity: 0, y: 20 });
+      gsap.set(".tech-badge", { opacity: 0, scale: 0 });
+      gsap.set(actionsRef.current?.children!, { opacity: 0, y: 20 });
+
       const tl = gsap.timeline();
 
-      // Backdrop
       tl.to(backdropRef.current, {
         opacity: 1,
         duration: 0.3,
         ease: "power2.out",
       });
 
-      // Modal content
       tl.to(
         contentRef.current,
         {
           opacity: 1,
           scale: 1,
-          duration: 0.5,
+          duration: 0.4,
           ease: "back.out(1.4)",
         },
         "-=0.1"
       );
 
-      // Close button
-      tl.from(
-        "#modalCloseBtn",
+      tl.to(
+        closeBtnRef.current,
         {
-          opacity: 0,
-          scale: 0,
-          rotation: -180,
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
           duration: 0.4,
           ease: "back.out(2)",
         },
         "-=0.3"
       );
 
-      // Image
-      tl.from(
-        "#modalImage",
+      tl.to(
+        imgRef.current,
         {
-          scale: 1.2,
-          opacity: 0,
+          opacity: 1,
+          scale: 1,
           duration: 0.6,
           ease: "power2.out",
         },
         "-=0.4"
       );
 
-      // Title
-      tl.from(
-        "#modalTitle",
+      tl.to(
+        titleRef.current,
         {
-          y: 30,
-          opacity: 0,
+          opacity: 1,
+          y: 0,
           duration: 0.5,
           ease: "power3.out",
         },
         "-=0.4"
       );
 
-      // Description
-      tl.from(
-        "#modalDescription",
+      tl.to(
+        descRef.current,
         {
-          y: 20,
-          opacity: 0,
-          duration: 0.5,
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
           ease: "power2.out",
         },
         "-=0.3"
       );
 
-      // Tech badges (with stagger)
-      tl.from(
+      tl.to(
         ".tech-badge",
         {
-          scale: 0,
-          opacity: 0,
+          opacity: 1,
+          scale: 1,
           duration: 0.3,
           stagger: 0.05,
           ease: "back.out(2)",
@@ -110,12 +113,11 @@ export default function ProjectInfoPopup({ isOpen, onClose, project }: ModalProp
         "-=0.2"
       );
 
-      // Action buttons
-      tl.from(
-        "#modalActions > *",
+      tl.to(
+        actionsRef.current?.children!,
         {
-          y: 20,
-          opacity: 0,
+          opacity: 1,
+          y: 0,
           duration: 0.4,
           stagger: 0.1,
           ease: "power2.out",
@@ -125,111 +127,41 @@ export default function ProjectInfoPopup({ isOpen, onClose, project }: ModalProp
     }
   }, [isOpen, project]);
 
-  /** ================================
-   * 🔥 CLOSE MODAL ANIMATION
-   * ================================= */
   const handleClose = () => {
-    const tl = gsap.timeline();
-
-    tl.to("#modalActions > *", {
-      y: 10,
-      opacity: 0,
-      duration: 0.2,
-      stagger: 0.05,
-      ease: "power2.in",
-    });
-
-    tl.to(
-      ".tech-badge",
-      {
-        scale: 0,
-        opacity: 0,
-        duration: 0.15,
-        stagger: 0.02,
-        ease: "back.in(2)",
-      },
-      "-=0.1"
-    );
-
-    tl.to(
-      ["#modalDescription", "#modalTitle"],
-      {
-        y: -20,
-        opacity: 0,
-        duration: 0.2,
-        stagger: 0.05,
-        ease: "power2.in",
-      },
-      "-=0.1"
-    );
-
-    tl.to(
-      "#modalCloseBtn",
-      {
-        scale: 0,
-        opacity: 0,
-        rotation: 180,
-        duration: 0.2,
-        ease: "back.in(2)",
-      },
-      "-=0.2"
-    );
-
-    tl.to(
-      contentRef.current,
-      {
-        opacity: 0,
-        scale: 0.9,
-        duration: 0.25,
-        ease: "power2.in",
-      },
-      "-=0.15"
-    );
-
-    tl.to(
-      backdropRef.current,
-      {
-        opacity: 0,
-        duration: 0.2,
-        ease: "power2.in",
-        onComplete: () => {
-          onClose();
-        },
-      },
-      "-=0.1"
-    );
+    gsap.timeline();
+    onClose()
   };
 
   if (!isOpen || !project) return null;
 
   return (
-    <div className="fixed inset-0 z-[100]">
-      {/* Backdrop */}
+    createPortal(<div className="fixed inset-0 z-100">
+
       <div
         ref={backdropRef}
         onClick={handleClose}
-        className="absolute inset-0 bg-zinc-950/80 backdrop-blur opacity-0"
+        className="absolute inset-0 bg-zinc-950/80 backdrop-blur"
       />
 
-      <div className="absolute inset-0 overflow-y-auto flex items-center justify-center p-4">
+      <div className="absolute inset-0 overflow-y-hidden py-16 flex items-center justify-center p-4">
         <div
           ref={contentRef}
-          className="relative bg-zinc-900 border border-zinc-800 rounded-2xl max-w-4xl w-full shadow-2xl opacity-0 scale-95"
+          className="relative bg-zinc-900 border border-zinc-800 rounded-2xl max-w-4xl w-full shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Close Button */}
+          {/* Close Btn */}
           <button
-            id="modalCloseBtn"
+            ref={closeBtnRef}
             onClick={handleClose}
             className="absolute top-4 right-4 z-10 p-2 bg-zinc-800/80 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-50 rounded-lg transition-all"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 cursor-pointer h-5" />
           </button>
 
           {/* Image */}
           <div className="aspect-video bg-zinc-800 overflow-hidden rounded-t-2xl">
             <img
-              id="modalImage"
+              ref={imgRef}
               src={project.image}
               alt={project.title}
               className="w-full h-full object-cover"
@@ -238,43 +170,34 @@ export default function ProjectInfoPopup({ isOpen, onClose, project }: ModalProp
 
           {/* Content */}
           <div className="p-8">
-            <h2
-              id="modalTitle"
-              className="text-3xl md:text-4xl font-semibold mb-4"
-            >
+            <h2 ref={titleRef} className="text-3xl text-white md:text-4xl font-semibold mb-4">
               {project.title}
             </h2>
 
-            <p
-              id="modalDescription"
-              className="text-base text-zinc-400 mb-6 leading-relaxed"
-            >
+            <p ref={descRef} className="text-base sm:max-h-40  max-h-56 overflow-y-auto text-zinc-400 mb-6 leading-relaxed">
               {project.description}
             </p>
 
-            {/* Tech Stack */}
+            {/* Tech */}
             <div className="mb-8">
               <h3 className="text-sm font-medium text-zinc-400 mb-3">
                 Technologies Used
               </h3>
 
-              <div id="modalTech" className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2">
                 {project.tech.map((t) => (
                   <span
                     key={t}
                     className="tech-badge px-3 py-1.5 bg-zinc-800 border border-zinc-700 text-zinc-300 text-xs font-medium rounded-lg"
                   >
-                    {t}
+                    {t.toUpperCase()}
                   </span>
                 ))}
               </div>
             </div>
 
             {/* Actions */}
-            <div
-              id="modalActions"
-              className="flex flex-col sm:flex-row gap-3"
-            >
+            <div ref={actionsRef} className="flex flex-col sm:flex-row gap-3">
               {project.link && (
                 <a
                   href={project.link}
@@ -293,9 +216,10 @@ export default function ProjectInfoPopup({ isOpen, onClose, project }: ModalProp
               </button>
             </div>
           </div>
+
         </div>
       </div>
-    </div>
-  );
+    </div>, document.querySelector("#popup") as HTMLDivElement)
+  )
 }
 

@@ -87,7 +87,7 @@ export default function Navbar() {
       <div className="max-w-4xl mx-auto">
         <div
           ref={navContainer}
-          className="glass-nav bg-[#141414] border border-zinc-800/50 rounded-full px-6 md:px-8 py-4 shadow-2xl "
+          className="glass-nav bg-[#141414] border border-zinc-800/50 rounded-2xl px-6 md:px-8 py-4 shadow-2xl "
         >
           <div className="flex items-center justify-between">
             <span
@@ -166,7 +166,8 @@ export default function Navbar() {
               ))}
 
               <a
-                href="#"
+                target="_blank"
+                href="https://github.com/Ayush01010101"
                 className="mobile-link flex items-center space-x-2 px-4 py-2 text-sm 
                            text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all sm:hidden"
               >
