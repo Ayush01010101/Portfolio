@@ -60,7 +60,6 @@ const HomeSection = (): ReactNode => {
 
           <ContactSection />
         </div>
-        <div className="h-screen" />
       </div >
     </>
   );

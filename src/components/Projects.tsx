@@ -1,11 +1,29 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Info, MoveUpRight } from "lucide-react";
+import ProjectInfoPopup from "./CustomUI/ProjectInfoPopup";
+
+
+interface ProjectsCard {
+  redirectURL: string,
+  imagepath: string,
+
+}
+
+
+const ProjectsCardArr: ProjectsCard[] = [
+  { redirectURL: "https://mayamorph.netlify.app", imagepath: "/thumbnail.png" },
+  { redirectURL: "https://social-media-taupe-alpha.vercel.app/", imagepath: "/socialmedia_thumbnail.png" }
+
+]
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects: React.FC = () => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const [isProjectInfoOpen, setisProjectInfoOpen] = useState<boolean>(true)
   const cardsRef = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
@@ -32,29 +50,42 @@ const Projects: React.FC = () => {
     return () => ctx.revert();
   }, []);
   return (
-    <div
-      ref={wrapperRef}
-      className="h-screen  flex items-center overflow-hidden"
-    >
-      <div ref={cardsRef} className="flex gap-5">
-        <h1 className=" flex justify-center items-center w-[300px] text-5xl text-white">
-          Projects
-        </h1>
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div
-            key={i}
-            className="
+    <>
+      {ProjectInfoPopup && <ProjectInfoPopup isOpen={true} project={{ title: "hello", description: "this is my name and my name is so good what is do now", tech: ['react js ', 'tailwind css'], image: '/thumbnail.png', link: 'https://mayamorph.netlify.app' }} onClose={() => { }} />}
+      <div
+        ref={wrapperRef}
+        className="h-screen flex items-center overflow-hidden"
+      >
+        <div ref={cardsRef} className="flex gap-5">
+          <h1 className=" flex justify-center items-center w-[300px] text-5xl text-white">
+            Projects
+          </h1>
+          {ProjectsCardArr.map((projectinfo, i) => (
+            <div
+              key={i}
+              className="
               w-[650px] shadow-[0_0_10px_rgba(255,255,255,0.05)] text-white h-[400px] mr-10 
-              bg-[1A1A1A] rounded-xl
+              bg-[1A1A1A] rounded-xl 
               flex items-center justify-center
               text-4xl font-semibold
             "
-          >
-            Card {i + 1}
-          </div>
-        ))}
-      </div>
-    </div>
+            >
+              <div className="w-full h-full relative">
+
+                <img src={projectinfo.imagepath} className="h-full w-full object-cover rounded-xl" />
+
+
+                <MoveUpRight onClick={() => window.open(projectinfo.redirectURL, "_blank")} className="absolute bottom-5 right-7 cursor-pointer " color="white" size={30} />
+
+                <Info onClick={() => setisProjectInfoOpen(true)} className="absolute bottom-5 right-20 cursor-pointer" color="white" size={30} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div >
+
+    </>
   );
 };
 

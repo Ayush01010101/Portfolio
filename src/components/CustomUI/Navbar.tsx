@@ -90,7 +90,7 @@ export default function Navbar() {
           className="glass-nav bg-[#141414] border border-zinc-800/50 rounded-full px-6 md:px-8 py-4 shadow-2xl "
         >
           <div className="flex items-center justify-between">
-            <p
+            <span
               className="flex items-center space-x-2 group"
             >
               <div className="w-8 h-8 bg-zinc-50 rounded-lg flex items-center justify-center">
@@ -99,10 +99,9 @@ export default function Navbar() {
               <span className="text-base font-semibold text-zinc-50 hidden sm:block">
                 Portfolio
               </span>
-            </p>
+            </span>
 
-            {/* Desktop Links */}
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden md:flex  items-center space-x-1">
               {["Projects", "About", "Contact"].map((text) => (
                 <a
                   key={text}
