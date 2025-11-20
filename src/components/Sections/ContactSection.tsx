@@ -1,5 +1,4 @@
 import { useState, useRef, type ChangeEvent, type MouseEvent, type ReactNode } from 'react';
-import { useForm, ValidationError } from '@formspree/react';
 import { Mail, Phone, MapPin, Send, Check } from 'lucide-react';
 
 interface FormData {
@@ -34,19 +33,21 @@ export default function ContactForm(): ReactNode {
     }));
   };
 
-  const handleSubmit = (e: MouseEvent<HTMLButtonElement>): void => {
+  const handleSubmit = async (e: MouseEvent<HTMLButtonElement>): Promise<void> => {
     e.preventDefault();
-    setShowSuccess(true);
+    const res = await fetch(`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_KEY}`, {
+      method: 'post',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({ formData })
+    })
 
-    setTimeout(() => {
-      setShowSuccess(false);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-    }, 3000);
+    if (res.status === 200) {
+      setShowSuccess(true)
+    }
+
   };
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>): void => {
@@ -180,7 +181,7 @@ export default function ContactForm(): ReactNode {
                   value={formData.name}
                   onChange={handleInputChange}
                   className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-base text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-zinc-700 focus:border-transparent transition-all focus:scale-[1.02]"
-                  placeholder="John Doe"
+                  placeholder="Your name"
                 />
               </div>
 
@@ -194,7 +195,7 @@ export default function ContactForm(): ReactNode {
                   value={formData.email}
                   onChange={handleInputChange}
                   className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-base text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-zinc-700 focus:border-transparent transition-all focus:scale-[1.02]"
-                  placeholder="john@example.com"
+                  placeholder="example@email.com"
                 />
               </div>
 

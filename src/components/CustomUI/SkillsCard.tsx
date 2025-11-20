@@ -19,19 +19,17 @@ const Skils: SkillsObj[] = [
   { imageurl: "Github.svg", text: "Github" },
 ];
 
-
-
 const SkilsCard = (): ReactNode => {
 
   return (
-    <div className="p-6 flex flex-wrap gap-6 bg-[#141414] rounded-xl justify-center">
+    <div className="p-6 flex flex-wrap w-5xl gap-6 bg-[#141414] rounded-xl justify-center">
       {Skils.map((skill, index) => (
         <div
           key={skill.text}
-          className="skill-box w-36 flex flex-col items-center justify-center gap-2 bg-[#1d1d1d] px-4 py-4 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300"
+          className="skill-box w-28 flex flex-col items-center justify-center gap-2 bg-[#1d1d1d] px-4 py-4 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300"
         >
           {/* Image box */}
-          <div className="h-12 w-12 flex justify-center items-center">
+          <div className="h-8 w-8 flex justify-center items-center">
             <img
               src={skill.imageurl}
               className="object-contain h-full w-full"

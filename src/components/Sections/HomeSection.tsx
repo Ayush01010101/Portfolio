@@ -27,7 +27,7 @@ const HomeSection = (): ReactNode => {
               />
 
               <p className="text-gray-400 mt-4 text-lg sm:text-xl max-w-md">
-                Frontend Developer | React | Tailwind | GSAP | Typescript
+                Frontend Developer |  React | Javascript | Typescript
               </p>
             </div>
 
