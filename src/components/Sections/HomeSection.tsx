@@ -12,10 +12,10 @@ const HomeSection = (): ReactNode => {
       <div className="w-full">
 
         <div className="flex flex-col mt-15 min-h-screen justify-center items-center">
-          <div className=" w-full flex    items-center justify-center gap-10 px-6">
+          <div className="w-full flex flex-col-reverse md:flex-row items-center justify-center gap-10 px-6">
 
             {/* Left Text */}
-            <div className="flex  flex-col items-start text-center sm:text-left">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <BlurText
                 text="Ayush Awachar"
 
@@ -34,7 +34,7 @@ const HomeSection = (): ReactNode => {
             {/* Right Image */}
             <div className="flex justify-center">
               <img
-                className="w-64 sm:w-80 md:w-[380px] lg:w-[460px] rounded-xl drop-shadow-xl"
+                className="w-full max-w-[350px] sm:w-80 md:w-[380px] lg:w-[460px] rounded-xl drop-shadow-xl"
                 src="https://media1.tenor.com/m/VO0p4rzSGQ4AAAAd/demon-slayer-kimetsu-no-yaiba.gif"
                 alt="Coder"
               />
