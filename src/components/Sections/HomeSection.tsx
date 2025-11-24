@@ -46,7 +46,7 @@ const HomeSection = (): ReactNode => {
           </div>
           {/* Skills Card */}
 
-          <div className="w-fit mx-auto mt-20 rounded-xl bg-[#141414] py-4">
+          <div className="w-fit mx-3 sm:mx-auto mt-20 rounded-xl bg-[#141414] py-4">
             <SkilsCard />
           </div>
         </div>
