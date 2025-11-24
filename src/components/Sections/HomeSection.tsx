@@ -4,18 +4,18 @@ import type { ReactNode } from "react";
 import SkilsCard from "../CustomUI/SkillsCard";
 import BlurText from "../BlurText";
 import Projects from "../Projects";
+import AboutMe from "../AboutMe";
 
 const HomeSection = (): ReactNode => {
   return (
     <>
       <div className="w-full">
 
-        <div className="flex flex-col h-screen justify-center items-center">
+        <div className="flex flex-col mt-30 min-h-screen justify-center items-center">
           <div className=" w-full flex    items-center justify-center gap-10 px-6">
 
             {/* Left Text */}
             <div className="flex  flex-col items-start text-center sm:text-left">
-
               <BlurText
                 text="Ayush Awachar"
 
@@ -46,19 +46,27 @@ const HomeSection = (): ReactNode => {
           </div>
           {/* Skills Card */}
 
-          <div className="w-fit mx-auto mt-20 rounded-xl bg-[#141414] p-4">
+          <div className="w-fit mx-auto mt-20 rounded-xl bg-[#141414] py-4">
             <SkilsCard />
           </div>
         </div>
 
 
+
+        {/* about me section */}
+        <div>
+
+          <AboutMe />
+        </div>
         {/* Projects Section */}
         <div className="mx-3">
           <Projects />
         </div>
         <div >
 
-          <ContactSection />
+          <div >
+            <ContactSection />
+          </div>
         </div>
       </div >
     </>

@@ -5,6 +5,7 @@ import {
   ArrowRight,
   Menu,
   X,
+  ArrowDownToLine,
 } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -131,9 +132,8 @@ export default function Navbar() {
                 className="flex items-center space-x-2 bg-zinc-50 hover:bg-zinc-200 
                            text-zinc-950 font-medium text-sm px-4 py-2 rounded-lg transition-all"
               >
-                <span className="hidden sm:inline">Hire Me</span>
+                <span className="hidden sm:flex gap-1">Resume<ArrowDownToLine size={20} /></span>
                 <span className="sm:hidden">Hire</span>
-                <ArrowRight className="w-4 h-4" />
               </button>
 
               {/* Mobile toggle */}

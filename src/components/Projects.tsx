@@ -29,33 +29,7 @@ const ProjectsCardArr: ProjectsCard[] = [
     link: "https://social-media-taupe-alpha.vercel.app/",
     redirectURL: "https://social-media-taupe-alpha.vercel.app/",
   },
-  {
-    title: "E-Commerce Dashboard",
-    description: "Comprehensive dashboard for online stores, featuring inventory management, sales analytics, and order tracking. Includes interactive charts for revenue visualization and real-time stock alerts.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
-    imagepath: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
-    tech: ["Vue.js", "Vuex", "Firebase", "Chart.js"],
-    link: "https://example.com/ecommerce",
-    redirectURL: "https://example.com/ecommerce",
-  },
-  {
-    title: "Crypto Tracker",
-    description: "Real-time cryptocurrency tracking application with live price updates, historical charts, and portfolio management. Users can track their favorite coins, set price alerts, and view market trends.",
-    image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?q=80&w=1000&auto=format&fit=crop",
-    imagepath: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?q=80&w=1000&auto=format&fit=crop",
-    tech: ["React Native", "Redux", "CoinGecko API"],
-    link: "https://example.com/crypto",
-    redirectURL: "https://example.com/crypto",
-  },
-  {
-    title: "Task Management Tool",
-    description: "Productivity tool for teams to organize tasks, set deadlines, and collaborate efficiently with Kanban boards. Supports drag-and-drop task organization, team assignments, and progress tracking.",
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1000&auto=format&fit=crop",
-    imagepath: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1000&auto=format&fit=crop",
-    tech: ["Angular", "RxJS", "MongoDB", "Express"],
-    link: "https://example.com/tasks",
-    redirectURL: "https://example.com/tasks",
-  }
+
 ];
 
 gsap.registerPlugin(ScrollTrigger);
