@@ -6,6 +6,8 @@ import {
   Menu,
   X,
   ArrowDownToLine,
+  Linkedin,
+  Twitter,
 } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -119,12 +121,27 @@ export default function Navbar() {
             <div className="flex items-center space-x-3">
               <a
                 target="_blank"
-
                 href="https://github.com/Ayush01010101"
                 className="hidden sm:flex items-center space-x-2 px-4 py-2 text-sm 
                            text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all"
               >
                 <Github className="w-4 h-4" />
+              </a>
+              <a
+                target="_blank"
+                href="#"
+                className="hidden sm:flex items-center space-x-2 px-4 py-2 text-sm 
+                           text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                target="_blank"
+                href="#"
+                className="hidden sm:flex items-center space-x-2 px-4 py-2 text-sm 
+                           text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all"
+              >
+                <Twitter className="w-4 h-4" />
               </a>
 
               <button
@@ -158,21 +175,37 @@ export default function Navbar() {
                 <a
                   key={text}
                   href={`#${text.toLowerCase()}`}
-                  className="mobile-link block px-4 py-2 text-sm text-zinc-400 
-                             hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all"
+                  className="mobile-link block px-4 py-2 text-sm 
+                           text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all sm:hidden"
                 >
                   {text}
                 </a>
               ))}
 
+
               <a
                 target="_blank"
                 href="https://github.com/Ayush01010101"
-                className="mobile-link flex items-center space-x-2 px-4 py-2 text-sm 
+                className="mobile-link block px-4 py-2 text-sm 
                            text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all sm:hidden"
               >
-                <Github className="w-4 h-4" />
                 <span>GitHub</span>
+              </a>
+              <a
+                target="_blank"
+                href="#"
+                className="mobile-link block px-4 py-2 text-sm 
+                           text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all sm:hidden"
+              >
+                <span>LinkedIn</span>
+              </a>
+              <a
+                target="_blank"
+                href="#"
+                className="mobile-link block px-4 py-2 text-sm 
+                           text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all sm:hidden"
+              >
+                <span>X.com</span>
               </a>
             </div>
           </div>

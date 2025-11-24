@@ -76,18 +76,14 @@ const AboutMe: React.FC = () => {
           When I’m not coding, you’ll find me exploring UI/UX ideas, learning new tools, or gaming.
         </p>
 
-        <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8">
+        <div ref={statsRef} className="grid content-center  grid-cols-2 md:grid-cols-3 gap-8 mt-8">
           <div className="stat-item flex flex-col items-center p-4 bg-[#1A1A1A] rounded-xl border border-white/5 hover:border-white/10 transition-colors">
-            <span className="text-3xl md:text-4xl font-bold text-white mb-2">2+</span>
+            <span className="text-3xl md:text-4xl font-bold text-white mb-2">1+</span>
             <span className="text-sm text-gray-500 uppercase tracking-wider">Years Exp.</span>
           </div>
           <div className="stat-item flex flex-col items-center p-4 bg-[#1A1A1A] rounded-xl border border-white/5 hover:border-white/10 transition-colors">
             <span className="text-3xl md:text-4xl font-bold text-white mb-2">15+</span>
             <span className="text-sm text-gray-500 uppercase tracking-wider">Projects</span>
-          </div>
-          <div className="stat-item flex flex-col items-center p-4 bg-[#1A1A1A] rounded-xl border border-white/5 hover:border-white/10 transition-colors">
-            <span className="text-3xl md:text-4xl font-bold text-white mb-2">10+</span>
-            <span className="text-sm text-gray-500 uppercase tracking-wider">Happy Clients</span>
           </div>
           <div className="stat-item flex flex-col items-center p-4 bg-[#1A1A1A] rounded-xl border border-white/5 hover:border-white/10 transition-colors">
             <span className="text-3xl md:text-4xl font-bold text-white mb-2">100%</span>
