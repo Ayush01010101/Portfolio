@@ -29,7 +29,7 @@ const SkilsCard = (): ReactNode => {
       {/* Technologies Section */}
       <div className="flex flex-col gap-2 md:gap-3">
         <h2 className="text-lg md:text-xl font-bold text-white mb-2 border-l-4 border-blue-500 pl-4">Technologies</h2>
-        <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
+        <div className="flex flex-wrap gap-2 md:gap-3 ">
           {Technologies.map((skill) => (
             <div
               key={skill.text}

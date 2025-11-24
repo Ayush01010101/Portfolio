@@ -11,11 +11,11 @@ const HomeSection = (): ReactNode => {
     <>
       <div className="w-full">
 
-        <div className="flex flex-col mt-15 min-h-screen justify-center items-center">
+        <div className="flex flex-col mt-27 min-h-screen justify-center items-center">
           <div className="w-full flex flex-col-reverse md:flex-row items-center justify-center gap-10 px-6">
 
             {/* Left Text */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="flex flex-col items-end md:items-start text-center md:text-left">
               <BlurText
                 text="Ayush Awachar"
 
@@ -26,7 +26,7 @@ const HomeSection = (): ReactNode => {
                 className="text-5xl sm:text-7xl lg:text-8xl text-white leading-tight font-bold"
               />
 
-              <p className="text-gray-400 mt-4 text-lg sm:text-xl max-w-md">
+              <p className="text-gray-400  mt-4 text-lg sm:text-xl  max-w-md">
                 Frontend Developer |  React | Javascript | Typescript
               </p>
             </div>

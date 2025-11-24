@@ -150,7 +150,7 @@ export default function Navbar() {
                            text-zinc-950 font-medium text-sm px-4 py-2 rounded-lg transition-all"
               >
                 <span className="hidden sm:flex gap-1">Resume<ArrowDownToLine size={20} /></span>
-                <span className="sm:hidden">Hire</span>
+                <span className="sm:hidden flex gap-1">Resume <ArrowDownToLine size={20} /></span>
               </button>
 
               {/* Mobile toggle */}
