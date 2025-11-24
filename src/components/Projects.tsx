@@ -88,7 +88,7 @@ const Projects: React.FC = () => {
             <div
               key={i}
               className="
-              w-[650px] shadow-[0_0_10px_rgba(255,255,255,0.05)] text-white h-[400px] mr-10 
+              sm:w-[650px] w-[540px] shadow-[0_0_10px_rgba(255,255,255,0.05)] text-white h-[400px] mr-10 
               bg-[1A1A1A] rounded-xl 
               flex items-center justify-center
               text-4xl font-semibold
