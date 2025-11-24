@@ -16,12 +16,11 @@ const Technologies: SkillsObj[] = [
 ];
 
 const Tools: SkillsObj[] = [
-  { imageurl: "/Git.svg", text: "Git" },
+  { imageurl: "/git.svg", text: "Git" },
   { imageurl: "/Github.svg", text: "Github" },
-  { imageurl: "/Vscode.svg", text: "VS Code" },
-  { imageurl: "/Postman.svg", text: "Postman" },
-  { imageurl: "/Figma.svg", text: "Figma" },
-  { imageurl: "/Docker.svg", text: "Docker" },
+  { imageurl: "/vscode.svg", text: "VS Code" },
+  { imageurl: "/postman.svg", text: "Postman" },
+  { imageurl: "/docker.svg", text: "Docker" },
 ];
 
 const SkilsCard = (): ReactNode => {
