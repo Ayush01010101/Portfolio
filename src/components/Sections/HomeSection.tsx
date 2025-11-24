@@ -11,7 +11,7 @@ const HomeSection = (): ReactNode => {
     <>
       <div className="w-full">
 
-        <div className="flex flex-col mt-30 min-h-screen justify-center items-center">
+        <div className="flex flex-col mt-15 min-h-screen justify-center items-center">
           <div className=" w-full flex    items-center justify-center gap-10 px-6">
 
             {/* Left Text */}
