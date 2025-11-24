@@ -129,7 +129,7 @@ export default function Navbar() {
               </a>
               <a
                 target="_blank"
-                href="#"
+                href="https://www.linkedin.com/in/ayush-a-601979268/"
                 className="hidden sm:flex items-center space-x-2 px-4 py-2 text-sm 
                            text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all"
               >
@@ -137,7 +137,7 @@ export default function Navbar() {
               </a>
               <a
                 target="_blank"
-                href="#"
+                href="https://x.com/0101Ayush"
                 className="hidden sm:flex items-center space-x-2 px-4 py-2 text-sm 
                            text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all"
               >
@@ -175,34 +175,33 @@ export default function Navbar() {
                 <a
                   key={text}
                   href={`#${text.toLowerCase()}`}
-                  className="mobile-link block px-4 py-2 text-sm 
-                           text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all sm:hidden"
+                  className="mobile-link block px-4 py-2 text-sm text-zinc-400 
+                             hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all"
                 >
                   {text}
                 </a>
               ))}
 
-
               <a
                 target="_blank"
                 href="https://github.com/Ayush01010101"
-                className="mobile-link block px-4 py-2 text-sm 
+                className="mobile-link flex items-center space-x-2 px-4 py-2 text-sm 
                            text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all sm:hidden"
               >
                 <span>GitHub</span>
               </a>
               <a
                 target="_blank"
-                href="#"
-                className="mobile-link block px-4 py-2 text-sm 
+                href="https://www.linkedin.com/in/ayush-a-601979268/"
+                className="mobile-link flex items-center space-x-2 px-4 py-2 text-sm 
                            text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all sm:hidden"
               >
                 <span>LinkedIn</span>
               </a>
               <a
                 target="_blank"
-                href="#"
-                className="mobile-link block px-4 py-2 text-sm 
+                href="https://x.com/0101Ayush"
+                className="mobile-link flex items-center space-x-2 px-4 py-2 text-sm 
                            text-zinc-400 hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all sm:hidden"
               >
                 <span>X.com</span>
