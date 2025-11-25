@@ -91,7 +91,7 @@ export default function ContactForm(): ReactNode {
   };
 
   return (
-    <div className=" text-zinc-100 min-h-screen flex items-center justify-center p-4 md:p-8">
+    <div id="contact" className=" text-zinc-100 min-h-screen flex items-center justify-center p-4 md:p-8">
       <div className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
         {/* Left Side - Info */}
         <div className="flex flex-col justify-center space-y-8 animate-fade-in">

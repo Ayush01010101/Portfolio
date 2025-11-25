@@ -77,6 +77,7 @@ const Projects: React.FC = () => {
         project={currentProject}
       />
       <div
+        id="projects"
         ref={wrapperRef}
         className="h-screen flex items-center overflow-hidden"
       >

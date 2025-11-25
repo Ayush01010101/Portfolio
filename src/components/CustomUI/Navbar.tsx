@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import {
   Code2,
   Github,
-  ArrowRight,
   Menu,
   X,
   ArrowDownToLine,
@@ -11,14 +10,13 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 export default function Navbar() {
   const navContainer = useRef<HTMLDivElement | null>(null);
   const navbar = useRef<HTMLDivElement | null>(null);
-  const logo = useRef<HTMLAnchorElement | null>(null);
-  const githubLink = useRef<HTMLAnchorElement | null>(null);
   const ctaButton = useRef<HTMLButtonElement | null>(null);
   const mobileMenuBtn = useRef<HTMLButtonElement | null>(null);
   const mobileMenu = useRef<HTMLDivElement | null>(null);
@@ -82,6 +80,19 @@ export default function Navbar() {
     }
   };
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const target = document.getElementById(targetId);
+    if (target) {
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: target, autoKill: false },
+        ease: "power2.inOut",
+      });
+      setMobileOpen(false); // Close mobile menu if open
+    }
+  };
+
   return (
     <nav
       ref={navbar}
@@ -109,6 +120,7 @@ export default function Navbar() {
                 <a
                   key={text}
                   href={`#${text.toLowerCase()}`}
+                  onClick={(e) => handleScroll(e, text.toLowerCase())}
                   className="nav-link px-4 py-2 text-sm text-zinc-400 hover:text-zinc-50 
                              rounded-lg hover:bg-zinc-800/50 transition-all"
                 >
@@ -175,6 +187,7 @@ export default function Navbar() {
                 <a
                   key={text}
                   href={`#${text.toLowerCase()}`}
+                  onClick={(e) => handleScroll(e, text.toLowerCase())}
                   className="mobile-link block px-4 py-2 text-sm text-zinc-400 
                              hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all"
                 >

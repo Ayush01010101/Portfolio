@@ -55,6 +55,7 @@ const AboutMe: React.FC = () => {
 
   return (
     <div
+      id="about"
       ref={containerRef}
       className="w-full min-h-[60vh] flex flex-col justify-center items-center py-20 px-6  text-white"
     >
