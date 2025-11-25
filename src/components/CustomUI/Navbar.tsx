@@ -116,13 +116,12 @@ export default function Navbar() {
             </span>
 
             <div className="hidden md:flex  items-center space-x-1">
-              {["Projects", "About", "Contact"].map((text) => (
-                <a
+              {["About", "Experience", "Contact"].map((text) => (
+                < a
                   key={text}
-                  href={`#${text.toLowerCase()}`}
                   onClick={(e) => handleScroll(e, text.toLowerCase())}
-                  className="nav-link px-4 py-2 text-sm text-zinc-400 hover:text-zinc-50 
-                             rounded-lg hover:bg-zinc-800/50 transition-all"
+                  className="nav-link px-4 py-2 text-sm text-zinc-400 hover:text-zinc-50
+              rounded-lg hover:bg-zinc-800/50 transition-all"
                 >
                   {text}
                 </a>
@@ -183,13 +182,13 @@ export default function Navbar() {
             className="md:hidden overflow-hidden h-0"
           >
             <div className="pt-4 pb-2 space-y-2 border-t border-zinc-800/50 mt-4">
-              {["Projects", "About", "Contact"].map((text) => (
-                <a
+              {["About", "Experience", "Contact"].map((text) => (
+                < a
                   key={text}
                   href={`#${text.toLowerCase()}`}
                   onClick={(e) => handleScroll(e, text.toLowerCase())}
-                  className="mobile-link block px-4 py-2 text-sm text-zinc-400 
-                             hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all"
+                  className="mobile-link block px-4 py-2 text-sm text-zinc-400
+              hover:text-zinc-50 rounded-lg hover:bg-zinc-800/50 transition-all"
                 >
                   {text}
                 </a>
@@ -223,7 +222,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 }
 

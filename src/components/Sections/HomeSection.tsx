@@ -5,6 +5,7 @@ import SkilsCard from "../CustomUI/SkillsCard";
 import BlurText from "../BlurText";
 import Projects from "../Projects";
 import AboutMe from "../AboutMe";
+import Experience from "../Experience";
 
 const HomeSection = (): ReactNode => {
   return (
@@ -57,6 +58,10 @@ const HomeSection = (): ReactNode => {
         <div>
 
           <AboutMe />
+        </div>
+        {/* Experience Section */}
+        <div>
+          <Experience />
         </div>
         {/* Projects Section */}
         <div className="mx-3">
