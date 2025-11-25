@@ -41,9 +41,9 @@ const Experience: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
 
+
   useGSAP(() => {
     const ctx = gsap.context(() => {
-      // Animate the central line
       gsap.from(lineRef.current, {
         scaleY: 0,
         transformOrigin: "top",
@@ -57,7 +57,6 @@ const Experience: React.FC = () => {
         },
       });
 
-      // Animate experience items
       const items = gsap.utils.toArray(".experience-item");
       items.forEach((item: any, index) => {
         gsap.from(item, {
@@ -78,6 +77,10 @@ const Experience: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
+
+
+
+
   return (
     <div
       id="experience"
@@ -93,7 +96,7 @@ const Experience: React.FC = () => {
           {/* Central Line */}
           <div
             ref={lineRef}
-            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-zinc-700 via-zinc-500 to-zinc-800 transform -translate-x-1/2 md:translate-x-0"
+            className="absolute  left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-zinc-700 via-zinc-500 to-zinc-800 transform -translate-x-1/2 md:translate-x-0"
           />
 
           <div className="space-y-12 md:space-y-24">
@@ -109,22 +112,11 @@ const Experience: React.FC = () => {
                     className={`bg-[#1A1A1A] p-6 rounded-2xl border border-zinc-800 hover:border-zinc-600 transition-colors relative ${index % 2 === 0 ? "md:text-right" : "md:text-left"
                       }`}
                   >
-                    {/* Connector Dot */}
+                    {/* Connector Line */}
                     <div
-                      className={`absolute top-6 w-4 h-4 rounded-full bg-zinc-200 border-4 border-[#0b0b0d] z-10
-                      ${index % 2 === 0
-                          ? "-left-[2.53rem] md:-right-[3.25rem] sm:hidden"
-                          : "-left-[2.53rem] md:-left-[3.25rem] sm:hidden"
-                        }
-                      `}
-                    />
-
-                    {/* Connector Line (Mobile only mostly, or small connector to main line) */}
-                    <div
-                      className={`absolute top-7 h-0.5 bg-zinc-700 sm:w-4  w-8
-                        ${index % 2 === 0
-                          ? "-left-8 md:-right-8 md:-left-4"
-                          : "-left-8 md:right-0"
+                      className={`absolute -right-4 top-8 h-0.5 bg-zinc-700 w-8 md:w-4
+                        ${index % 2 === 0 &&
+                        "-left-8  md:-left-4"
                         }
                         `}
                     />
