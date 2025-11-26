@@ -10,7 +10,7 @@ import Experience from "../Experience";
 const HomeSection = (): ReactNode => {
   return (
     <>
-      <div className="w-full block sm:flex flex-col justify-center h-screen ">
+      <div className="w-full flex flex-col justify-start sm:justify-center min-h-screen pb-5">
 
         <div className="flex flex-col  justify-center sm:w-4xl mx-auto items-center mt-26 sm:mt-20">
           <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10 px-6">
