@@ -1,4 +1,5 @@
-import React, { useLayoutEffect, useRef } from "react";
+
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Briefcase, Calendar } from "lucide-react";
@@ -41,7 +42,6 @@ const Experience: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
 
-
   useGSAP(() => {
     const ctx = gsap.context(() => {
       gsap.from(lineRef.current, {
@@ -77,10 +77,6 @@ const Experience: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
-
-
-
-
   return (
     <div
       id="experience"
@@ -96,7 +92,7 @@ const Experience: React.FC = () => {
           {/* Central Line */}
           <div
             ref={lineRef}
-            className="absolute  left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-zinc-700 via-zinc-500 to-zinc-800 transform -translate-x-1/2 md:translate-x-0"
+            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-zinc-700 via-zinc-500 to-zinc-800 transform -translate-x-1/2 md:translate-x-0"
           />
 
           <div className="space-y-12 md:space-y-24">
@@ -114,16 +110,29 @@ const Experience: React.FC = () => {
                   >
                     {/* Connector Line */}
                     <div
-                      className={`absolute -right-4 top-8 h-0.5 bg-zinc-700 w-8 md:w-4
-                        ${index % 2 === 0 &&
-                        "-left-8  md:-left-4"
+                      className={`
+                       hidden sm:block absolute top-8 h-0.5 bg-zinc-700 w-8 md:w-4
+                        
+                        ${index % 2 === 0
+                          ? "sm:-left-4"
+                          : "sm:-right-4"
                         }
-                        `}
+                      `}
                     />
+
+                    {/* connector line for mobile */}
+                    <div
+                      className={`
+                       sm:hidden absolute top-8 h-0.5 bg-zinc-700 w-8 md:w-4
+                       -left-8
+                      `}
+                    />
+
 
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                       {exp.title}
                     </h3>
+
                     <div
                       className={`flex items-center gap-2 text-zinc-400 mb-4 text-sm ${index % 2 === 0 ? "md:justify-end" : "md:justify-start"
                         }`}
@@ -134,13 +143,12 @@ const Experience: React.FC = () => {
                       <Calendar className="w-4 h-4" />
                       <span>{exp.date}</span>
                     </div>
-                    <p className="text-zinc-400 leading-relaxed">
-                      {exp.description}
-                    </p>
+
+                    <p className="text-zinc-400 leading-relaxed">{exp.description}</p>
                   </div>
                 </div>
 
-                {/* Empty space for the other side of the tree */}
+                {/* Empty space */}
                 <div className="hidden md:block flex-1" />
               </div>
             ))}
@@ -152,3 +160,4 @@ const Experience: React.FC = () => {
 };
 
 export default Experience;
+

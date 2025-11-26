@@ -34,13 +34,12 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
       y: 0,
       opacity: 1,
       skewY: 0,
-      duration: 1,
+      duration: 0.6,
       ease: 'power3.out',
     })
       // Hold for a moment
       .to({}, { duration: 0.5 })
 
-      // Curtain Reveal Sequence (Text moves UP with the black layer naturally)
       .to(blackLayerRef.current, {
         yPercent: -100,
         duration: 1.2,
