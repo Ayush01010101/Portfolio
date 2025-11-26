@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <CustomCursor />
-      {isLoading && <SplashScreen onComplete={() => setIsLoading(false)} />}
+      {true && <SplashScreen onComplete={() => setIsLoading(false)} />}
 
       <div className="min-h-screen min-w-screen overflow-x-hidden bg-[#0b0b0d]">
         <Navbar />
