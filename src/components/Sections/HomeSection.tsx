@@ -6,21 +6,31 @@ import BlurText from "../BlurText";
 import Projects from "../Projects";
 import AboutMe from "../AboutMe";
 import Experience from "../Experience";
+import Tilt3D from "../CustomUI/Tilt3D";
 
 const HomeSection = (): ReactNode => {
   return (
     <>
-      <div className="w-full flex flex-col justify-start sm:justify-center min-h-screen pb-5">
+      <div className="w-full flex flex-col justify-start sm:justify-center min-h-screen pb-5 relative">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+            backgroundSize: '30px 30px'
+          }}
+        />
 
         <div className="flex flex-col  justify-center sm:w-4xl mx-auto items-center mt-26 sm:mt-20">
           <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10 px-6">
             {/* Right Image (Now Left) */}
-            <div className="flex justify-center">
-              <img
-                className="w-full max-w-[350px] sm:w-80 md:w-[380px] lg:w-[460px] rounded-xl drop-shadow-xl"
-                src="https://imgs.search.brave.com/StSyI94kgmcv_rhImuiJB9rz1_aLx9xk9lJYD3Y4_68/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9waWNz/LmNyYWl5b24uY29t/LzIwMjQtMDktMTcv/UnZ1VWdtaTlRaEN4/b3dSQV96cm9yQS53/ZWJw"
-                alt="Coder"
-              />
+            <div className="flex justify-center perspective-1000">
+              <Tilt3D className="rounded-xl">
+                <img
+                  className="w-full max-w-[350px] sm:w-80 md:w-[380px] lg:w-[460px] rounded-xl drop-shadow-xl"
+                  src="https://imgs.search.brave.com/StSyI94kgmcv_rhImuiJB9rz1_aLx9xk9lJYD3Y4_68/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9waWNz/LmNyYWl5b24uY29t/LzIwMjQtMDktMTcv/UnZ1VWdtaTlRaEN4/b3dSQV96cm9yQS53/ZWJw"
+                  alt="Coder"
+                />
+              </Tilt3D>
             </div>
 
             {/* Left Text (Now Right) */}
