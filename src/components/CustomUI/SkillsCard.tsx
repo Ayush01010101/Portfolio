@@ -25,11 +25,11 @@ const Tools: SkillsObj[] = [
 
 const SkilsCard = (): ReactNode => {
   return (
-    <div className="flex flex-col gap-6 w-full max-w-6xl mx-auto px-8 md:px-4">
+    <div className="flex flex-col gap-6 w-full  mx-auto px-8 md:px-4">
       {/* Technologies Section */}
       <div className="flex flex-col gap-2 md:gap-3">
         <h2 className="text-lg md:text-xl font-bold text-white mb-2 border-l-4 border-blue-500 pl-4">Technologies</h2>
-        <div className="flex flex-wrap gap-2 md:gap-3 ">
+        <div className="flex flex-wrap justify-center sm:justify-normal gap-6 md:gap-6 ">
           {Technologies.map((skill) => (
             <div
               key={skill.text}
@@ -51,7 +51,7 @@ const SkilsCard = (): ReactNode => {
       {/* Tools Section */}
       <div className="flex flex-col gap-2 md:gap-3">
         <h2 className="text-lg md:text-xl font-bold text-white mb-2 border-l-4 border-green-500 pl-4">Tools</h2>
-        <div className="flex flex-wrap gap-2 md:gap-3 ">
+        <div className="flex flex-wrap justify-center sm:justify-normal  gap-6 md:gap-6 ">
           {Tools.map((skill) => (
             <div
               key={skill.text}

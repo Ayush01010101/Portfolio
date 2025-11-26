@@ -69,7 +69,7 @@ const AboutMe: React.FC = () => {
 
         <p
           ref={textRef}
-          className="text-lg md:text-3xl text-gray-400 leading-relaxed text-center mb-12 max-w-3xl mx-auto"
+          className="text-lg md:text-3xl text-gray-400 leading-relaxed text-center  mb-12 max-w-3xl mx-auto"
         >
           I'm an aspiring Frontend Developer passionate about building clean, responsive, and user-friendly web interfaces.
           I have a strong understanding of React, TypeScript, and modern CSS frameworks, and I love turning ideas into functional and visually appealing components.

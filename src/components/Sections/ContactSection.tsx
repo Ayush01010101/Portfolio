@@ -134,9 +134,9 @@ export default function ContactForm(): ReactNode {
                 <MapPin className="w-5 h-5 text-zinc-400" strokeWidth={1.5} />
               </div>
               <div>
-                <h3 className="text-base font-medium text-zinc-200">Office</h3>
+                <h3 className="text-base font-medium text-zinc-200">Address</h3>
                 <p className="text-base text-zinc-500 group-hover:text-zinc-400 transition-colors">
-                  123 Business St, Suite 100<br />San Francisco, CA 94105
+                  Nashik, Maharshtra,India
                 </p>
               </div>
             </div>

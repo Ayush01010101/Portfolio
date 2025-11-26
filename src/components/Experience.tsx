@@ -1,5 +1,4 @@
-
-import React, { useRef } from "react";
+import React, { useRef, type ReactNode } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Briefcase, Calendar } from "lucide-react";
@@ -8,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 interface ExperienceItem {
-  title: string;
+  title: ReactNode;
   company: string;
   date: string;
   description: string;
@@ -16,25 +15,25 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Frontend Developer",
-    company: "TechCorp Solutions",
+    title: "Backend Development",
+    company: "",
     date: "2023 - Present",
     description:
-      "Leading the frontend development of core products using React, TypeScript, and Tailwind CSS. Improved site performance by 40% through code splitting and optimization techniques.",
+      "Worked with Node.js and Express.js to build basic backend APIs and server-side logic. Created REST APIs, handled routes, middleware, and request handling. Connected projects with MongoDB or JSON-based data storage. Implemented authentication, simple CRUD operations, and error handling. Tested APIs using Postman and integrated them with frontend projects.",
   },
   {
-    title: "Web Developer Intern",
-    company: "Digital Innovations",
+    title: "Frontend Development",
+    company: "",
     date: "2022 - 2023",
     description:
-      "Collaborated with senior developers to build responsive web interfaces. Implemented modern UI/UX designs and ensured cross-browser compatibility.",
+      "Worked with React.js, JavaScript, and modern UI styling. Built multiple projects using Tailwind CSS, UI libraries, and reusable components. Implemented state management using hooks and the Context API, added routing, and integrated APIs. Used GSAP for basic animations. Deployed projects on Vercel and managed version control with Git and GitHub.",
   },
   {
-    title: "Freelance Developer",
-    company: "Self Employed",
-    date: "2021 - 2022",
+    title: <h3 className="flex sm:block  items-center gap-2"><div className="bg-green-400 h-2 w-2 rounded-full animate-pulse"></div> Degree</h3>,
+    company: "Bachelor of Computer Applications",
+    date: "2023 - 2026",
     description:
-      "Delivered custom website solutions for various clients. specialized in creating landing pages and e-commerce storefronts using modern web technologies.",
+      "Developed multiple academic web projects as part of the BCA curriculum, focusing on frontend development using HTML, CSS, JavaScript, and React. Built responsive user interfaces, implemented form validation, and integrated external APIs ",
   },
 ];
 
@@ -84,8 +83,8 @@ const Experience: React.FC = () => {
       className="w-full min-h-screen py-20 px-4 md:px-8 relative overflow-hidden"
     >
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
-          Experience
+        <h2 className="text-4xl p-2 md:text-6xl font-bold mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
+          Learnings
         </h2>
 
         <div className="relative">
@@ -133,7 +132,7 @@ const Experience: React.FC = () => {
                       {exp.title}
                     </h3>
 
-                    <div
+                    {exp.company && <div
                       className={`flex items-center gap-2 text-zinc-400 mb-4 text-sm ${index % 2 === 0 ? "md:justify-end" : "md:justify-start"
                         }`}
                     >
@@ -142,7 +141,7 @@ const Experience: React.FC = () => {
                       <span className="mx-2">•</span>
                       <Calendar className="w-4 h-4" />
                       <span>{exp.date}</span>
-                    </div>
+                    </div>}
 
                     <p className="text-zinc-400 leading-relaxed">{exp.description}</p>
                   </div>
