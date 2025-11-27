@@ -26,6 +26,23 @@ export default function ProjectInfoPopup({ isOpen, onClose, project }: ModalProp
   const descRef = useRef<HTMLParagraphElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
 
+
+
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
+
+
   useEffect(() => {
     if (isOpen && project) {
       gsap.set(backdropRef.current, { opacity: 0 });
@@ -174,7 +191,7 @@ export default function ProjectInfoPopup({ isOpen, onClose, project }: ModalProp
               {project.title}
             </h2>
 
-            <p ref={descRef} className="text-base sm:max-h-40  max-h-56 overflow-y-auto text-zinc-400 mb-6 leading-relaxed">
+            <p ref={descRef} className="text-base sm:max-h-40  max-h-56 overflow-y-auto text-zinc-400 mb-6  leading-relaxed show-scroll">
               {project.description}
             </p>
 

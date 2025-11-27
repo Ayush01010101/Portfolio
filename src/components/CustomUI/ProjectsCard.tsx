@@ -38,11 +38,11 @@ const ProjectsCard = () => {
 
 
 
-
-
-    </div>
-  )
-
+      *::-webkit-scrollbar {
+        display: none;
 }
 
-export default ProjectsCard
+      .show-scroll::-webkit-scrollbar {
+        display: block;
+      width: 4px !important;
+}ault ProjectsCard
