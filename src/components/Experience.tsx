@@ -29,7 +29,7 @@ const experiences: ExperienceItem[] = [
       "Worked with React.js, JavaScript, and modern UI styling. Built multiple projects using Tailwind CSS, UI libraries, and reusable components. Implemented state management using hooks and the Context API, added routing, and integrated APIs. Used GSAP for basic animations. Deployed projects on Vercel and managed version control with Git and GitHub.",
   },
   {
-    title: <h3 className="flex sm:block  items-center gap-2"><div className="bg-green-400 h-2 w-2 rounded-full animate-pulse"></div> Degree</h3>,
+    title: <div className="flex sm:block  items-center gap-2"><div className="bg-green-400 h-2 w-2 rounded-full animate-pulse"></div> Degree</div>,
     company: "Bachelor of Computer Applications",
     date: "2023 - 2026",
     description:

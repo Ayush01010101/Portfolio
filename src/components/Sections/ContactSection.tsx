@@ -35,7 +35,7 @@ export default function ContactForm(): ReactNode {
 
   const handleSubmit = async (e: MouseEvent<HTMLButtonElement>): Promise<void> => {
     e.preventDefault();
-    const res = await fetch(`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_KEY}`, {
+    const res = await fetch(`https://formspree.io/f/xblwgqly`, {
       method: 'post',
       headers: {
         "Content-Type": "application/json",

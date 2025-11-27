@@ -26,7 +26,6 @@ const ProjectsCardArr: ProjectsCard[] = [
     image: "/socialmedia_thumbnail.png",
     imagepath: "/socialmedia_thumbnail.png",
     tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-    link: "https://social-media-taupe-alpha.vercel.app/",
     redirectURL: "https://social-media-taupe-alpha.vercel.app/",
   },
 
