@@ -6,7 +6,7 @@ export default function CustomCursor() {
   useEffect(() => {
     const cursor = cursorRef.current;
 
-    const moveCursor = (e: any) => {
+    const moveCursor = (e: MouseEvent) => {
       gsap.to(cursor, {
         x: e.clientX,
         y: e.clientY,

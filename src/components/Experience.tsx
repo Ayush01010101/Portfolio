@@ -57,15 +57,15 @@ const Experience: React.FC = () => {
       });
 
       const items = gsap.utils.toArray(".experience-item");
-      items.forEach((item: any, index) => {
-        gsap.from(item, {
+      items.forEach((item: unknown, index: number) => {
+        gsap.from(item as HTMLElement, {
           opacity: 0,
           y: 50,
           x: index % 2 === 0 ? -50 : 50,
           duration: 0.8,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: item,
+            trigger: item as HTMLElement,
             start: "top 85%",
             toggleActions: "play none none reverse",
           },

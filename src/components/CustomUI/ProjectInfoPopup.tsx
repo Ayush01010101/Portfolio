@@ -52,7 +52,7 @@ export default function ProjectInfoPopup({ isOpen, onClose, project }: ModalProp
       gsap.set(titleRef.current, { opacity: 0, y: 30 });
       gsap.set(descRef.current, { opacity: 0, y: 20 });
       gsap.set(".tech-badge", { opacity: 0, scale: 0 });
-      gsap.set(actionsRef.current?.children!, { opacity: 0, y: 20 });
+      if (actionsRef.current) gsap.set(actionsRef.current.children, { opacity: 0, y: 20 });
 
       const tl = gsap.timeline();
 
@@ -130,17 +130,19 @@ export default function ProjectInfoPopup({ isOpen, onClose, project }: ModalProp
         "-=0.2"
       );
 
-      tl.to(
-        actionsRef.current?.children!,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.4,
-          stagger: 0.1,
-          ease: "power2.out",
-        },
-        "-=0.2"
-      );
+      if (actionsRef.current) {
+        tl.to(
+          actionsRef.current.children,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            stagger: 0.1,
+            ease: "power2.out",
+          },
+          "-=0.2"
+        );
+      }
     }
   }, [isOpen, project]);
 
